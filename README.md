@@ -1,10 +1,18 @@
-## 🔵 Zoom Clone
+## Peer-it
 
-- Real time messaging chat and video/audio communication using Socket.io, Peer.js, Nodejs, Express, and EJS.
-- Version 2.0
+- Video and audio communication along with messaging using Socket.io.
 
-## URL / Live version
-To check out the live demo of this app:
-- [azoom.herokuapp.com](https://azoom.herokuapp.com)
 
-![Zoom Clone Room](https://github.com/louiejancevski/ZoomClone/blob/master/public/img/zoom.png)
+# Instructions to use 
+
+ + Clone this repository
+ > `git clone https://github.com/dheeraj-bharadwaj/peer-it.git`
+ > 
+ > `cd peer-it`
+ 
+ 
+ To run this install the Web-server chrome app , Install web-server app. Open it and select the "peer-it" folder.
+ 
+ https://chrome.google.com/webstore/detail/web-server-for-chrome/ofhbbkphhbklhfoeikjpcbhemlocgigb?utm_source=chrome-app-launcher-info-dialog
+ 
+ 

@@ -1,4 +1,3 @@
-// const { default: axios } = require("axios")
 
 const socket = io('/')
 const videoGrid = document.getElementById('videoGrid')
@@ -15,17 +14,6 @@ const myPeer = new Peer(undefined, {
 
 const peers = {}
 
-var roomName = prompt("Enter room Name:");
-
-var userName = prompt("Enter user name:");
-
-// var http = require('http');
-if(roomName) {
-	console.log('here');
-	// $http.post('/app/enter-room', {params: {id: 'dhee'}}).then(() => console.log('done')).catch(() => console.log('in catch'))
-	axios.get('test');
-	axios.post('enter-room', {id: 'dheeraj'}).then(() => console.log('done')).catch(() => console.log('in catch'))
-}
 let myVideoStream
 navigator.mediaDevices
 	.getUserMedia({
@@ -58,12 +46,12 @@ navigator.mediaDevices
 			}
 		})
 
-		socket.on('createMessage', (message, userId) => {
+		socket.on('createMessage', (message, userName, userId) => {
 			$('ul').append(`<li >
 								<span class="messageHeader">
 									<span>
 										From 
-										<span class="messageSender">Someone</span> 
+										<span class="messageSender">${userName}</span> 
 										to 
 										<span class="messageReceiver">Everyone:</span>
 									</span>
@@ -87,8 +75,7 @@ socket.on('user-disconnected', (userId) => {
 })
 
 peer.on('open', (id) => {
-	console.log('this is room id', ROOM_ID);
-	socket.emit('join-room', ROOM_ID, userName, id);
+	socket.emit('join-room', ROOM_ID, USER_NAME, id);
 })
 
 const connectToNewUser = (userId, stream) => {
