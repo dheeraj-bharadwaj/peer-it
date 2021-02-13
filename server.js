@@ -42,6 +42,11 @@ io.on('connection', (socket) => {
 		socket.on('message', (message) => {
 			io.to(roomId).emit('createMessage', message, userName, userId)
 		})
+
+		socket.on('file', (fileContent, fileName) => {
+			io.to(roomId).emit('fileUploaded', fileContent, fileName, userName, userId);
+		})
+
 		socket.on('disconnect', () => {
 			socket.to(roomId).broadcast.emit('user-disconnected', userId)
 		})

@@ -8,6 +8,18 @@
 	justify-content: center;
 }
 
+input[type="file"] {
+	display: none;
+}
+.custom-file-upload {
+	border: 1px solid #ccc;
+	display: block;
+	padding: 4px 4px;
+	cursor: pointer;
+	font-size: 12px;
+	float: right;
+}
+
 video {
 	height: 300px;
 	width: 400px;
