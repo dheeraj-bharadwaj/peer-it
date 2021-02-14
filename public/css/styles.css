@@ -16,8 +16,9 @@ input[type="file"] {
 	display: block;
 	padding: 4px 4px;
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 14px;
 	float: right;
+	background-color: #fff;
 }
 
 video {
@@ -40,8 +41,9 @@ video {
 
 .mainVideos {
 	flex-grow: 1;
-	background-color: #222222;
-	display: flex;
+	background-color: #e7e7de;
+	/* display: flex; */
+	padding-top: 100px;
 	justify-content: center;
 	align-items: center;
 }
@@ -110,7 +112,7 @@ video {
 	flex: 0.2;
 	display: flex;
 	flex-direction: column;
-	background-color: #ffffff;
+	background-color: #000;
 	border-left: 1px solid #2d3d42;
 }
 
@@ -118,10 +120,10 @@ video {
 	text-align: center;
 }
 
-.mainHeader h6 {
+.mainHeader h4 {
 	font-weight: 700;
-	color: #4a4a4a;
-	font-size: 13px;
+	color: #fff;
+	/* font-size: 16px; */
 }
 
 .mainChatWindow {
@@ -136,6 +138,7 @@ video {
 .message {
 	font-size: 13px;
 	display: block;
+	color: #ccc;
 }
 
 .messageSendingTo {
@@ -182,6 +185,12 @@ video {
 	flex-grow: 1;
 	background-color: transparent;
 	border: none;
-	font-size: 13px;
+	font-size: 14px;
 	outline: 0;
+	caret-color: #fff;
+	color: rgba(255, 255, 255, 0.543);
 }
+
+/* .mainMessageContainer input:hover {
+	background-color: #2e2e2e;
+} */

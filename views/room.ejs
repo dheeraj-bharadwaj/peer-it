@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Peer-IT </title>
+  <title>Peer IT!</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
   <script src="/socket.io/socket.io.js"></script>
   <script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
@@ -13,6 +14,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>
@@ -27,80 +30,86 @@
     const USER_NAME = '<%= userName %>'
   </script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-
-  <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
-  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+ 
 </head>
 
 <body>
 
   <div class="main">
-    <div class="mainLeft">
-      <div class="mainVideos">
-        <div id="videoGrid"> </div>
-
-      </div>
-      <div class="mainControls">
-        <div class="mainControlsBlock">
-          <div onclick="muteUnmute()" class="mainControlsButton mainMuteButton">
-            <i class="fas fa-microphone"></i>
-            <span>Mute</span>
-          </div>
-          <div onclick="playStop()" class="mainControlsButton mainVideoButton">
-            <i class="fas fa-video"></i>
-            <span>Stop Video</span>
-          </div>
-        </div>
-
-        <div class="mainControlsBlock">
-          <div class="mainControlsButton">
-            <i class="fas fa-shield-alt"></i>
-            <span>Security</span>
-          </div>
-          <div class="mainControlsButton">
-            <i class="fas fa-user-friends"></i>
-            <span>Participants</span>
-          </div>
-          <div class="mainControlsButton">
-            <i class="fas fa-comment-alt"></i>
-            <span>Chat</span>
-          </div>
-          <div class="mainControlsButton">
-            <i class="fas fa-record-vinyl"></i>
-            <span>Record</span>
-          </div>
-        </div>
-
-        <div class="mainControlsBlock">
-          <div class="mainControlsButtonEndMeeting">
-            <span class="leaveMeeting">End</span>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
+    
     <div class="mainRight">
       <div class="mainHeader">
-        <h6>Chat</h6>
+        <h4>Chat</h4>
       </div>
       <div class="mainChatWindow">
         <ul class="messagesContainer">
         </ul>
       </div>
-      <div class="messageSendingTo">To: <span>Everyone <i class="fas fa-angle-down"></i></span> </div>
+      <!-- <div class="messageSendingTo">To: <span>Everyone <i class="fas fa-angle-down"></i></span> </div> -->
       <div class="mainMessageContainer">
         <input id="chatMessage" type="text" placeholder="Type message here...">
       </div>
+
       <div>
         <label for="files" class="custom-file-upload">
           File Upload
           <!-- <button style="font-size:24px">Button <i class="fa fa-cloud-upload"></i> -->
-          <i class="fa fa-cloud-upload"></i> 
+          <span class="glyphicon glyphicon-circle-arrow-up"></span>
       </label>
       <!-- <input id="file-upload" type="file"/> -->
-         <input type="file" id="files" onchange="uploadFile()"  size="60"></input>
+         <input type="file" id="files" onchange="uploadFile()"></input>
         </div>
+
+    </div>
+
+    <div class="mainLeft">
+      <div class="mainVideos">
+        <div id="videoGrid"> </div>
+        <br/>
+
+      <div style="padding: 0px 0px 0px 470px">
+        <button type="button" class="btn btn-danger btn-lg mainMuteButton" 
+                 style="padding: 10px 10px 10px 10px" 
+                 onclick="muteUnmute()">
+          <i class="fas fa-microphone"></i>&nbsp;
+          <span style="color:#fff;font-size: 15px;">Mute</span>
+        </button>
+      <!-- </div> -->
+
+      <!-- <div style="padding: 0px 0px 0px 600px"> -->
+      <button class="btn btn-primary btn-lg mainVideoButton" onclick="playStop()" style="padding: 10px 10px 10px 10px">
+        <i class="fas fa-video"></i> &nbsp;
+        <span style="color:#fff;font-size: 15px;">Stop Video</span>
+      </button>
+    </div>
+
+      </div>
+      <!-- <div class="mainControls"> -->
+        <!-- <div class="mainControlsBlock"> -->
+
+          <!-- <button type="button" class="btn btn-danger mainMuteButton" style="padding-left:10px" onclick="muteUnmute()">
+            <i class="fas fa-microphone"></i>&nbsp;
+            <span style="color:#fff;font-size: 13px;">Mute</span>
+          </button> -->
+
+          <!-- <div onclick="muteUnmute()" class="mainControlsButton mainMuteButton">
+            <i class="fas fa-microphone"></i>
+            <span>Mute</span>
+          </div> -->
+
+          <!-- <button class="btn btn-primary mainVideoButton" onclick="playStop()" style="padding-left:10px">
+            <i class="fas fa-video"></i> &nbsp;
+            <span style="color:#fff;font-size: 13px;">Stop Video</span>
+          </button> -->
+
+          <!-- <div onclick="playStop()" class="mainControlsButton mainVideoButton">
+            <i class="fas fa-video"></i>
+            <span>Stop Video</span>
+          </div> -->
+        <!-- </div> -->
+
+      <!-- </div> -->
+
     </div>
   </div>
 </body>
