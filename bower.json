@@ -1,0 +1,20 @@
+{
+  "name": "zoom-clone",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Rushil <sanghavi.1@iitj.ac.in>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "crypto-js": "^4.0.0"
+  }
+}

@@ -6,7 +6,7 @@ const { ExpressPeerServer } = require('peer')
 const peerServer = ExpressPeerServer(server, {
 	debug: true,
 })
-
+const CryptoJS = require('crypto-js');
 var bodyParser = require('body-parser');
 
 // parse application/x-www-form-urlencoded
@@ -33,14 +33,18 @@ app.get('/:room', (req, res) => {
 })
 
 
-
+var tempmessage = "HH";
+const aesKey = "abc123XYZ";
 io.on('connection', (socket) => {
 	socket.on('join-room', (roomId, userName, userId) => {
 		socket.join(roomId)
 		socket.to(roomId).broadcast.emit('user-connected',  userName, userId);
 
 		socket.on('message', (message) => {
-			io.to(roomId).emit('createMessage', message, userName, userId)
+			encryptedMessage = CryptoJS.AES.encrypt(message, aesKey).toString();
+			console.log(encryptedMessage);
+			//console.log(CryptoJS.AES.decrypt(encryptedMessage, aesKey).toString(CryptoJS.enc.Utf8));
+			io.to(roomId).emit('createMessage', encryptedMessage,userName, userId)
 		})
 
 		socket.on('file', (fileContent, fileName) => {

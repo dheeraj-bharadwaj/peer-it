@@ -1,7 +1,8 @@
-
+const aesKey = "abc123XYZ";
 const socket = io('/')
 const videoGrid = document.getElementById('videoGrid')
 const myVideo = document.createElement('video')
+//const CryptoJS = require('crypto-js');
 myVideo.muted = true
 
 var peer = new Peer()
@@ -13,6 +14,7 @@ const myPeer = new Peer(undefined, {
 })
 
 const peers = {}
+let tempmessage1;
 let fileContents;
 let myVideoStream
 navigator.mediaDevices
@@ -46,7 +48,11 @@ navigator.mediaDevices
 			}
 		})
 
-		socket.on('createMessage', (message, userName, userId) => {
+		socket.on('createMessage', (encryptedMessage, userName, userId) => {
+			//this.tempmessage1 = CryptoJS.AES.decrypt(tempmessage, aesKey);
+			//console.log(CryptoJS.AES.decrypt(tempmessage, aesKey).toString(CryptoJS.enc.Utf8))
+			this.decryptedMessage = CryptoJS.AES.decrypt(encryptedMessage, aesKey).toString(CryptoJS.enc.Utf8)
+			console.log(encryptedMessage)
 			$('ul').append(`<li >
 								<span class="messageHeader">
 									<span>
@@ -62,9 +68,8 @@ navigator.mediaDevices
 										hour12: true,
 									})}
 								</span>
-
-								<span class="message">${message}</span>
-							
+								<span class="message">${decryptedMessage}</span>
+								s
 							</li>`)
 			scrollToBottom()
 		})
